@@ -1,0 +1,31 @@
+{
+  "name": "jbaskeen",
+  "version": "0.0.1",
+  "homepage": "https://github.com/jbaskeen/jbaskeen",
+  "authors": [
+    "JAMES SKEEN <jbskeen@us.ibm.com>"
+  ],
+  "description": "Website for James Skeen",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "lato": "~0.3.0",
+    "fonts-raleway": "~0.0.3",
+    "font-awesome": "~4.4.0",
+    "bootstrap": "~3.3.5",
+    "angular-touch": "~1.4.5",
+    "angular": "~1.4.5",
+    "angular-bootstrap": "~0.13.4",
+    "angular-mocks": "~1.4.5",
+    "angular-resource": "~1.4.5",
+    "angular-sanitize": "~1.4.5",
+    "angular-ui-router": "~0.2.15",
+    "jquery": "~2.1.4"
+  }
+}

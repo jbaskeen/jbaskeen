@@ -1,0 +1,328 @@
+/*
+Tutorial Name: Off Canvas Sliding Navigation
+Author: Samuel Dalusung
+*/
+
+
+/* GENERAL STYLES
+-------------------------------------------------*/
+
+html,
+body{
+	background: #ffffff;
+	height: 100%;
+}
+
+
+h1, h2, h3, h4{
+	text-align: center;
+
+}
+
+h1{
+	font-family: 'Raleway', Arial, sans-serif;
+	font-weight: 700;
+	font-size: 45px;
+	margin-top: 15px;
+	color: #000000;
+
+}
+
+h3{
+	font-family: 'Raleway', Arial, sans-serif;
+	font-weight: 400;
+	font-size: 25px;
+	margin-top: 15px;
+	color: #918e84;
+}
+
+h4{
+	font-family: 'Raleway', Arial, sans-serif;
+	font-weight: 300;
+	font-size: 15px;
+	margin-top: 15px;
+	color: #918e84;
+}
+
+
+/* CONTAINERS
+-------------------------------------------------*/
+
+#container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+
+#canvas {
+  width: 100%;
+  height: 100%;
+  padding-top: 25px;
+  position: relative;
+
+  -webkit-transform:translateX(0);
+  -moz-transform:translateX(0);
+  -ms-transform:translateX(0);
+  -o-transform:translateX(0);
+  transform:translateX(0);
+
+  -webkit-transition:.5s ease all;
+  -moz-transition:.5s ease all;
+  -o-transition:.5s ease all;
+  transition:.5s ease all;
+
+
+}
+
+#nav {
+  width: 300px;
+  height: 100%;
+  background: #e0e0e0;
+  position: absolute;
+  left: -300px;
+  top: 0;
+
+  -webkit-transition:.5s ease all;
+  -moz-transition:.5s ease all;
+  -o-transition:.5s ease all;
+  transition:.5s ease all;
+
+  /* By default, rotate the menu 90deg inwards */
+  -webkit-transform:rotateY(-90deg);
+  -moz-transform:rotateY(-90deg);
+  -ms-transform:rotateY(-90deg);
+  -o-transform:rotateY(-90deg);
+  transform:rotateY(-90deg);
+}
+
+#container.display-nav #canvas {
+ -webkit-transform:translateX(300px);
+ -moz-transform:translateX(300px);
+ -ms-transform:translateX(300px);
+ -o-transform:translateX(300px);
+ transform:translateX(300px);
+}
+
+/* transition the menu with perspective on "show-nav" */
+#container.display-nav #nav {
+
+  -webkit-transform-origin:100% 50%;
+  -moz-transform-origin:100% 50%;
+  -ms-transform-origin:100% 50%;
+  -o-transform-origin:100% 50%;
+  transform-origin:100% 50%;
+
+  -webkit-transform:perspective(600px) rotateY(0deg);
+  -moz-transform:perspective(600px) rotateY(0deg);
+  -ms-transform:perspective(600px) rotateY(0deg);
+  -o-transform:perspective(600px) rotateY(0deg);
+  transform:perspective(600px) rotateY(0deg);
+
+}
+
+.content {
+	margin-top: 10%;
+}
+
+
+/* UTILITIES
+-------------------------------------------------*/
+
+#bars{
+	font-size: 34px;
+	margin-left: 30px;
+	color: #5a5a5a;
+}
+
+#bars:hover{
+ color: #4d4d4d;
+}
+
+#title{
+	margin: 0;
+	padding-top: 15px;
+	color: #5a5a5a;
+	text-shadow: 0 0 1px rgba(0,0,0,0.1);
+	font-weight: 300;
+	font-size: 2em;
+	font-family: 'Raleway', Arial;
+}
+
+
+.border{
+  border-top: 1px solid rgba(0,0,0,0.2);
+
+}
+
+a.back {
+ color: #38935f;
+ width: 200px;
+ text-decoration: none;
+ text-align: center;
+ font-family: 'Raleway';
+ font-size: 20px;
+ font-weight: 600;
+ display: block;
+ margin: 50px auto 0 auto;
+ border: 2px solid #38935f;
+ padding: 10px;
+
+}
+
+a.back:hover{
+ color: #48b978;
+
+ border: 2px solid #48b978;
+}
+
+
+.clear {
+  clear: both;
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+}
+
+
+
+/* TOGGLE NAV
+-------------------------------------------------*/
+
+#toggle {
+  list-style: none;
+  margin-top: 30px;
+}
+#toggle div:hover {
+  background: #ccc;
+  -webkit-box-shadow:inset 0 -1px rgba(0,0,0,0);
+  -moz-box-shadow:inset 0 -1px rgba(0,0,0,0);
+  box-shadow:inset 0 -1px rgba(0,0,0,0);
+  color: #fff;
+}
+#toggle div.active {
+  background: #fff;
+}
+#toggle div {
+
+  cursor: pointer;
+  display: block;
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+
+span.menu-icons {
+  font-size: 20px;
+  height: 20px;
+  width: 22px;
+  float: left;
+  margin: 11px 0px 10px 37px;
+  color: #000;
+}
+
+
+span.the-btn {
+  float: right;
+  font-size: 20px;
+  height: 30px;
+  width: 43px;
+  margin-top: 10px;
+  margin-right: 8px;
+  padding:0;
+  color: #000;
+}
+
+#toggle ul {
+  list-style: disc;
+  display: none;
+  color: #000;
+  background: rgba(0,0,0,0.2);
+  -webkit-box-shadow:inset 0 -1px rgba(0,0,0,0);
+  -moz-box-shadow:inset 0 -1px rgba(0,0,0,0);
+  box-shadow:inset 0 -1px rgba(0,0,0,0);
+
+}
+
+#toggle li a {
+  line-height: 41px;
+  color: #000;
+  list-style: circle;
+  width: 240px;
+  padding: 0;
+  margin: 0 0 0 20px;
+
+}
+#toggle a {
+	margin: 0 0 0 47px;
+  padding: 0;
+  font-family: 'Lato';
+  color: #000;
+  line-height: 41px;
+  font-weight: normal;
+  font-size: 18px;
+  text-decoration: none;
+
+}
+
+#toggle ul li {
+  margin-left: 90px;
+  list-style: none;
+}
+
+#toggle ul li a:hover{
+	color: #fff;
+}
+
+#toggle ul li a {
+ margin-left: 0;
+}
+
+.logo {
+	font-family: 'Raleway', Arial, sans-serif;
+	font-size: 100px;
+	font-weight: bold;
+	border-radius: 50%;
+	width: 180px;
+	height: 180px;
+	background-color: #000;
+	color: #fff;
+	text-align: center;
+	margin-top: 15px;
+	margin-left: auto;
+  margin-right: auto;
+}
+
+.logo-text {
+	padding-top: 22%;
+}
+
+.contact-links-container {
+	margin-left: auto;
+	margin-right: auto;
+	font-family: 'Raleway', Arial, sans-serif;
+	font-size: 20px;
+	margin-top: 30px;
+	color: #918e84;
+	text-align: center;
+}
+
+.contact-phone {
+	color: #434343;
+	text-decoration: none;
+}
+
+.contact-email, a {
+	padding-top: 15px;
+	color: #434343;
+	text-decoration: none;
+}
+
+.contact-social-links {
+	color: #4d4d4d;
+	font-size: 40px;
+	padding-top: 30px;
+	padding-bottom: 20px;
+}
+
+.social-icon {
+	padding: 15px;
+}
